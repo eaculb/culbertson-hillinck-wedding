@@ -1,8 +1,8 @@
 import * as React from "react";
+import Head from "next/head";
 
-import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 
@@ -13,15 +13,35 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container>
-        <Grid container>
-          <Grid item xs={12}>
-            <Menu />
-          </Grid>
-          <Grid item xs={12}>
-            <Component {...pageProps} />
-          </Grid>
-        </Grid>
+      <Head>
+        <link rel="stylesheet" href="https://use.typekit.net/wgh7vrw.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&family=Karma:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <Container sx={{ position: "relative" }}>
+        <Box
+          sx={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+          }}
+        >
+          <Menu />
+        </Box>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "64px",
+            height: `calc(100vh - ${theme.appBarHeight}px)`,
+          }}
+        >
+          <Component {...pageProps} />
+        </Box>
       </Container>
     </ThemeProvider>
   );

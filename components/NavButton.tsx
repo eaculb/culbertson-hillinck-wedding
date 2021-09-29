@@ -14,8 +14,12 @@ interface Props {
 export default function NavButton({ path, label, variant, color }: Props) {
   return (
     <Link href={path}>
-      <Button variant={variant || "text"} color={color || "secondary"}>
-        <Typography>{label}</Typography>
+      <Button
+        variant={variant || "text"}
+        color={color || "secondary"}
+        sx={{ ml: 4, mr: 2 }}
+      >
+        {label}
       </Button>
     </Link>
   );

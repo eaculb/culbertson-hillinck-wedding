@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "next/link";
 
 import Grid from "@mui/material/Grid";
+import { useTheme } from "@mui/material";
 
 import NavButton from "./NavButton";
 
@@ -11,8 +11,8 @@ export default function Menu() {
       container
       direction="row"
       justifyContent="flex-end"
-      sx={{ py: 3 }}
-      spacing={1}
+      alignItems="center"
+      sx={{ height: "64px" }}
     >
       <Grid item>
         <NavButton path="/about-us" label="About Us" />
