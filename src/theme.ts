@@ -12,11 +12,13 @@ declare module "@mui/material/styles/createTheme" {
 
 declare module "@mui/material/styles/createPalette" {
   interface PaletteOptions {
-    complement?: PaletteColorOptions;
+    complementary?: PaletteColorOptions;
+    dark?: PaletteColorOptions;
   }
 
   interface Palette {
-    complement: PaletteColor;
+    complementary: PaletteColor;
+    dark: PaletteColor;
   }
 }
 
@@ -29,19 +31,22 @@ const theme = createTheme({
       contrastText: "#fff",
     },
     secondary: {
-      main: "#FCE8DD",
+      main: "#fff",
       contrastText: "#1A1F2D",
     },
-    complement: {
+    complementary: {
       main: "#61846B",
       light: "#7A8C7F",
+    },
+    dark: {
+      main: "#1A1F2D",
     },
     info: {
       main: "#A17D71",
     },
     background: {
       default: "#1A1F2D",
-      paper: "#FCE8DD",
+      // paper: "#FCE8DD",
     },
     text: {
       primary: "#fff",
@@ -85,29 +90,29 @@ const theme = createTheme({
       fontSize: "1.8rem",
     },
     subtitle1: {
-      fontFamily: "karma, serif",
-      fontWeight: 400,
+      fontFamily: "Crimson Text, serif",
+      fontWeight: 600,
       fontSize: "1.6rem",
     },
     subtitle2: {
-      fontFamily: "karma, serif",
-      fontWeight: 400,
+      fontFamily: "Crimson Text, serif",
+      fontWeight: 600,
       fontSize: "1.4rem",
     },
     body1: {
-      fontFamily: "karma, serif",
-      fontWeight: 300,
-      fontSize: "1.6rem",
-    },
-    body2: {
-      fontFamily: "karma, serif",
-      fontWeight: 300,
-      fontSize: "1.4rem",
-    },
-    button: {
-      fontFamily: "karma, serif",
+      fontFamily: "Crimson Text, serif",
       fontWeight: 400,
       fontSize: "1.4rem",
+    },
+    body2: {
+      fontFamily: "Crimson Text, serif",
+      fontWeight: 400,
+      fontSize: "1.2rem",
+    },
+    button: {
+      fontFamily: "Crimson Text, serif",
+      fontWeight: 400,
+      fontSize: "1.2rem",
       textTransform: "none",
     },
   },
@@ -116,25 +121,10 @@ const theme = createTheme({
       defaultProps: {
         disableRipple: true,
       },
-      styleOverrides: {
-        root: {
-          borderWidth: "2px",
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        outlined: {
-          borderWidth: "2px",
-          "&:hover": {
-            borderWidth: "2px",
-          },
-        },
-      },
     },
   },
   // Used for consistency in the app bar size
-  appBarHeight: 64,
+  appBarHeight: 72,
 });
 
 export default theme;

@@ -1,35 +1,40 @@
 import React from "react";
 
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { useTheme } from "@mui/material";
 
-import NavButton from "./NavButton";
+import RsvpButton from "./RsvpButton";
+import NavLink from "./NavLink";
+import { useTheme } from "@mui/private-theming";
 
 export default function Menu() {
+  const theme = useTheme();
   return (
     <Grid
       container
       direction="row"
-      justifyContent="flex-end"
+      justifyContent="space-between"
       alignItems="center"
-      sx={{ height: "64px" }}
+      sx={{ height: theme.appBarHeight, px: 3, pt: 2 }}
     >
+      <Grid item xs={6}>
+        <Box />
+      </Grid>
+
       <Grid item>
-        <NavButton path="/about-us" label="About Us" />
+        <NavLink path="/home" label="Home" />
       </Grid>
       <Grid item>
-        <NavButton path="/travel" label="Travel" />
+        <NavLink path="/about-us" label="About Us" />
       </Grid>
       <Grid item>
-        <NavButton path="/registry" label="Registry" />
+        <NavLink path="/travel" label="Travel" />
       </Grid>
       <Grid item>
-        <NavButton
-          path="/rsvp"
-          label="RSVP"
-          variant="outlined"
-          color="primary"
-        />
+        <NavLink path="/registry" label="Registry" />
+      </Grid>
+      <Grid item>
+        <RsvpButton />
       </Grid>
     </Grid>
   );

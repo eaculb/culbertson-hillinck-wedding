@@ -21,6 +21,10 @@ export default function App({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&family=Karma:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Container sx={{ position: "relative" }}>
         <Box
@@ -36,7 +40,8 @@ export default function App({ Component, pageProps }) {
         <Box
           sx={{
             position: "absolute",
-            top: "64px",
+            top: theme.appBarHeight,
+            width: "100%",
             height: `calc(100vh - ${theme.appBarHeight}px)`,
           }}
         >
