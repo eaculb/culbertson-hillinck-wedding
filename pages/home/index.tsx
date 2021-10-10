@@ -15,17 +15,14 @@ export default function HomePage() {
 
   return (
     <>
-      <Grid
-        container
-        sx={{
-          py: 5,
-          my: 5,
-          px: isSmall ? "20px" : "5vw",
+      <Section
+        containerSx={{
+          mb: 3,
+          alignItems: "center",
           height: `calc(100vh-${theme.appBarHeight})`,
         }}
-        alignItems="center"
       >
-        <Grid item xs={12} md={6} sx={{ mb: 3 }}>
+        <Grid item xs={12} md={6}>
           <Box
             sx={{
               display: "flex",
@@ -53,7 +50,7 @@ export default function HomePage() {
             style={{ borderRadius: 10 }}
           />
         </Grid>
-      </Grid>
+      </Section>
       <Section>
         <Grid item xs={12} sm={7}>
           {/* image to come! */}

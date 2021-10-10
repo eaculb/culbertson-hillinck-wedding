@@ -122,6 +122,11 @@ const theme = createTheme({
         disableRipple: true,
       },
     },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
   },
   // Used for consistency in the app bar size
   appBarHeight: 72,

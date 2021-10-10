@@ -38,7 +38,7 @@ export default function Page() {
                     height: "100%",
                   }}
                 >
-                  <Typography variant="body1" sx={{ mb: 2 }}>
+                  <Typography variant="body2">
                     LGA is about 20 minutes driving from The Box House and Milk
                     & Roses, and 30 minutes from the Hampton Inn.
                   </Typography>
@@ -54,7 +54,7 @@ export default function Page() {
                     height: "100%",
                   }}
                 >
-                  <Typography variant="body1" sx={{ mb: 2 }}>
+                  <Typography variant="body2">
                     JFK is about 30 minutes driving from The Box House and Milk
                     & Roses, and 45 minutes from the Hampton Inn.
                   </Typography>
@@ -111,7 +111,7 @@ export default function Page() {
                   <Typography variant="body2" sx={{ mb: 2 }}>
                     Brooklyn, NY 11222
                   </Typography>
-                  <Typography variant="body1" sx={{ mb: 2 }}>
+                  <Typography variant="body2">
                     Something something here are instructions
                   </Typography>
                 </Box>
@@ -131,7 +131,7 @@ export default function Page() {
                   <Typography variant="body2" sx={{ mb: 2 }}>
                     Brooklyn, NY 11201
                   </Typography>
-                  <Typography variant="body1" sx={{ mb: 2 }}>
+                  <Typography variant="body2">
                     Something something here's a link
                   </Typography>
                 </Box>
