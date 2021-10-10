@@ -1,22 +1,51 @@
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useTheme, Theme } from "@mui/system";
 
+import Section from "@/components/Section";
+import DaySchedule from "@/components/schedule/DaySchedule";
+import DayItem from "@/components/schedule/DayItem";
+import RsvpButton from "@/components/RsvpButton";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 export default function HomePage() {
   const theme: Theme = useTheme();
+  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <>
       <Grid
         container
-        sx={{ py: 5, my: 5, height: `calc(100vh-${theme.appBarHeight})` }}
+        sx={{
+          py: 5,
+          my: 5,
+          px: isSmall ? "20px" : "5vw",
+          height: `calc(100vh-${theme.appBarHeight})`,
+        }}
         alignItems="center"
       >
-        <Grid item xs={12} sm={6}>
-          <Typography variant="h1">Lizzie & BJ</Typography>
-          <Typography variant="h2">09.24.2022</Typography>
-          <Typography variant="h4">Brooklyn, NY</Typography>
+        <Grid item xs={12} md={6} sx={{ mb: 3 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: isSmall ? "center" : "flex-start",
+            }}
+          >
+            {isSmall ? (
+              <>
+                <Typography variant="h1">Lizzie</Typography>
+                <Typography variant="h1">& BJ</Typography>
+              </>
+            ) : (
+              <Typography variant="h1">Lizzie & BJ</Typography>
+            )}
+            <Typography variant="h2">09.24.2022</Typography>
+            <Typography variant="h4">Brooklyn, NY</Typography>
+          </Box>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} md={6}>
           <img
             src="/us-0.jpg"
             alt="the happy couple"
@@ -25,12 +54,12 @@ export default function HomePage() {
           />
         </Grid>
       </Grid>
-      <Grid container sx={{ py: 5, minHeight: "50vh" }} alignItems="center">
+      <Section>
         <Grid item xs={12} sm={7}>
-          {/* image yay */}
+          {/* image to come! */}
         </Grid>
         <Grid item xs={12} sm={5}>
-          <Typography variant="h4">
+          <Typography variant="h4" gutterBottom>
             We are getting married and we'd love for you to be there!
           </Typography>
           <Typography variant="body1">
@@ -40,7 +69,48 @@ export default function HomePage() {
             the law)
           </Typography>
         </Grid>
-      </Grid>
+      </Section>
+      <Section>
+        <Grid item xs={12}>
+          <Typography variant="h2">Schedule</Typography>
+          <Typography variant="subtitle1" color="primary">
+            These are estimates. Check back soon for confirmed times!
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Grid container direction="column">
+            <DaySchedule date="September 23, 2022">
+              <DayItem time="~3:00 PM" event="Hotel Check-In" />
+              <DayItem time="~6:00 PM" event="Rehearsal Dinner" />
+            </DaySchedule>
+            <DaySchedule date="September 24, 2022">
+              <DayItem time="5:30 PM" event="Ceremony" />
+              <DayItem time="following" event="Reception" />
+            </DaySchedule>
+            <DaySchedule date="September 23, 2022">
+              <DayItem
+                time="~10AM-12PM"
+                event="Goodbye Bagels (drop by any time!)"
+              />
+            </DaySchedule>
+          </Grid>
+        </Grid>
+      </Section>
+      <Section>
+        <Grid item xs={12} md={6}>
+          {/* image to come */}
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography variant="h4" gutterBottom>
+            Ready to celebrate?
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 2 }}>
+            Whether you’re able to attend the whole weekend or just the day of,
+            we’ll be honored to have you there.
+          </Typography>
+          <RsvpButton variant="contained" fullWidth={isSmall} />
+        </Grid>
+      </Section>
     </>
   );
 }

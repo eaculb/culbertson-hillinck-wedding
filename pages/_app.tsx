@@ -2,7 +2,6 @@ import * as React from "react";
 import Head from "next/head";
 
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 
@@ -26,13 +25,15 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Container sx={{ position: "relative" }}>
+      <Box sx={{ display: "flex", position: "relative" }}>
         <Box
           sx={{
+            backgroundColor: theme.palette.background.default,
             position: "fixed",
             top: 0,
             left: 0,
             width: "100%",
+            zIndex: (theme) => theme.zIndex.drawer + 1,
           }}
         >
           <Menu />
@@ -47,7 +48,7 @@ export default function App({ Component, pageProps }) {
         >
           <Component {...pageProps} />
         </Box>
-      </Container>
+      </Box>
     </ThemeProvider>
   );
 }

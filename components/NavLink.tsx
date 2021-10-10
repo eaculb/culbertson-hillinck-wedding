@@ -6,13 +6,20 @@ import MatLink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
 interface Props {
+  mobile?: boolean;
   path: string;
   label: string;
   variant?: "outlined" | "contained" | "text";
   color?: "primary" | "secondary" | "info";
 }
 
-export default function NavLink({ path, label, variant, color }: Props) {
+export default function NavLink({
+  mobile,
+  path,
+  label,
+  variant,
+  color,
+}: Props) {
   const router = useRouter();
 
   const routerBasedProps =
@@ -25,7 +32,7 @@ export default function NavLink({ path, label, variant, color }: Props) {
         color={color || "secondary"}
         variant="button"
         underline="none"
-        sx={{ pb: 0.5, ...routerBasedProps }}
+        sx={{ ml: mobile ? 0 : 7, pb: 0.5, ...routerBasedProps }}
       >
         {label}
       </MatLink>
