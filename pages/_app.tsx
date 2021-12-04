@@ -23,7 +23,7 @@ export default function App({
         <link rel="stylesheet" href="https://use.typekit.net/wgh7vrw.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         {/* @ts-ignore */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&family=Karma:wght@300;400;500;600&display=swap"
           rel="stylesheet"

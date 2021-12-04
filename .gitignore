@@ -1,2 +1,5 @@
 .next
+.firebase
 node_modules
+build/
+out/
