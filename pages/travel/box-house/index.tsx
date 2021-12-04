@@ -1,9 +1,8 @@
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import MatLink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
+import CopyPasteControl from "@/components/CopyPasteControl";
 import Section from "@/components/Section";
 
 export default function Page() {
@@ -57,13 +56,10 @@ export default function Page() {
                 'After finding the room you want and clicking "book", you will be prompted to fill out a booking form. In "Enter Guest Information" > "Request/remark", paste the following code:'
               }
             </Typography>
-            <Button
-              variant="contained"
-              endIcon={<ContentCopyIcon />}
+            <CopyPasteControl
+              content="Culbertson/Hillinck Wedding - 322525"
               sx={{ my: 2 }}
-            >
-              Culbertson/Hillinck Wedding - 322525
-            </Button>
+            />
           </li>
           <li>
             Please note that when you first book online, it won't reflect the
