@@ -3,19 +3,18 @@ import { useRouter } from "next/router";
 
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import MenuIcon from "@mui/icons-material/Menu";
-
-import RsvpButton from "./RsvpButton";
-import NavLink from "./NavLink";
-import { useTheme } from "@mui/system";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+// import RsvpButton from "./RsvpButton";
+import NavLink from "@/components/NavLink";
+import { theme } from "@/src/theme";
+
 export default function Menu() {
-  const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down("md"));
 
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -39,8 +38,7 @@ export default function Menu() {
   if (isSmall) {
     return (
       <Box sx={{ display: "flex" }}>
-        <Grid
-          container
+        <Stack
           direction="row"
           justifyContent="flex-start"
           alignItems="center"
@@ -49,7 +47,7 @@ export default function Menu() {
           <IconButton aria-label="menu" size="medium">
             <MenuIcon fontSize="medium" onClick={toggleDrawer} />
           </IconButton>
-        </Grid>
+        </Stack>
         <Drawer
           anchor="top"
           open={drawerOpen}
@@ -65,6 +63,9 @@ export default function Menu() {
             <ListItem key="home">
               <NavLink mobile path="/home" label="Home" />
             </ListItem>
+            <ListItem key="venue">
+              <NavLink mobile path="/venue" label="Venue" />
+            </ListItem>
             <ListItem key="travel">
               <NavLink mobile path="/travel" label="Travel" />
             </ListItem>
@@ -74,9 +75,9 @@ export default function Menu() {
             <ListItem key="faq">
               <NavLink mobile path="/faq" label="FAQ" />
             </ListItem>
-            <ListItem key="rsvp">
+            {/* <ListItem key="rsvp">
               <RsvpButton size="medium" fullWidth />
-            </ListItem>
+            </ListItem> */}
           </List>
         </Drawer>
       </Box>
@@ -84,28 +85,18 @@ export default function Menu() {
   }
 
   return (
-    <Grid
-      container
+    <Stack
       direction="row"
       justifyContent="flex-end"
       alignItems="center"
       sx={{ height: theme.appBarHeight, px: 3, py: "auto" }}
     >
-      <Grid item>
-        <NavLink path="/home" label="Home" />
-      </Grid>
-      <Grid item>
-        <NavLink path="/travel" label="Travel" />
-      </Grid>
-      <Grid item>
-        <NavLink path="/registry" label="Registry" />
-      </Grid>
-      <Grid item>
-        <NavLink path="/faq" label="FAQ" />
-      </Grid>
-      <Grid item sx={{ ml: 7 }}>
-        <RsvpButton size="medium" />
-      </Grid>
-    </Grid>
+      <NavLink path="/home" label="Home" />
+      <NavLink path="/venue" label="Venue" />
+      <NavLink path="/travel" label="Travel" />
+      <NavLink path="/registry" label="Registry" />
+      <NavLink path="/faq" label="FAQ" />
+      <Box sx={{ ml: 7 }}>{/* <RsvpButton size="medium" /> */}</Box>
+    </Stack>
   );
 }

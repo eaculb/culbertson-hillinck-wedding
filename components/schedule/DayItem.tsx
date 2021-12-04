@@ -1,6 +1,7 @@
 import React from "react";
 
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 interface Props {
@@ -10,13 +11,15 @@ interface Props {
 
 export default function DayItem({ time, event }: Props) {
   return (
-    <Box>
-      <Box sx={{ width: "150px", display: "inline-block" }}>
-        <Typography variant="body1">{time}</Typography>
-      </Box>
-      <Box sx={{ display: "inline-block" }}>
-        <Typography variant="body1">{event}</Typography>
-      </Box>
-    </Box>
+    <Stack direction="row" sx={{ mb: 1 }}>
+      <Typography
+        variant="body1"
+        color="complementary"
+        sx={{ minWidth: "120px" }}
+      >
+        {time}
+      </Typography>
+      <Typography variant="body1">{event}</Typography>
+    </Stack>
   );
 }

@@ -22,8 +22,9 @@ export default function NavLink({
 }: Props) {
   const router = useRouter();
 
-  const routerBasedProps =
-    router.pathname === path ? { borderBottom: "1px solid" } : {};
+  const routerBasedProps = router.pathname.includes(path)
+    ? { borderBottom: "1px solid" }
+    : {};
 
   return (
     <Link href={path}>

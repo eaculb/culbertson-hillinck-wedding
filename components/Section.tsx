@@ -3,8 +3,6 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { PaletteOptions } from "@mui/material/styles/createPalette";
-import { useTheme, Theme } from "@mui/system";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 interface Props {
   backgroundColor?: PaletteOptions;
@@ -12,19 +10,20 @@ interface Props {
   containerSx?: any;
 }
 
-export default function Section({ backgroundColor, children, containerSx }: Props) {
-  const theme: Theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
+export default function Section({
+  backgroundColor,
+  children,
+  containerSx,
+}: Props) {
 
   return (
     <Box
       sx={{
         ...(backgroundColor ? { backgroundColor } : {}),
-        px: isSmall ? "20px" : "5vw",
-        py: 7,
+        px: { xs: "20px", md: "5vw" },
       }}
     >
-      <Grid container sx={{ ...containerSx }}>
+      <Grid container spacing={3} sx={{ ...containerSx }}>
         {children}
       </Grid>
     </Box>

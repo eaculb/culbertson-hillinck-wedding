@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { styled, darken } from "@mui/system";
+import { styled, darken, alpha } from "@mui/system";
 import Button, { ButtonProps } from "@mui/material/Button";
 
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -17,12 +17,17 @@ const StyledButton = styled(Button)(({ theme }) => ({
       backgroundColor: darken(theme.palette.primary.main, 0.2),
     },
   },
+  "&.Mui-disabled": {
+    color: alpha(theme.palette.primary.contrastText, 0.3),
+    backgroundColor: alpha(theme.palette.primary.main, 0.3),
+    // border: `2px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+  },
 }));
 
 const RsvpButton = ({ variant, ...props }: Omit<ButtonProps, "sx">) => (
   <Link href="/rsvp">
-    <StyledButton variant={variant || "outlined"} {...props}>
-      RSVP
+    <StyledButton disabled variant={variant || "outlined"} {...props}>
+      Check back later to RSVP
     </StyledButton>
   </Link>
 );

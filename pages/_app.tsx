@@ -5,16 +5,24 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 
-import theme from "../src/theme";
-import Menu from "../components/Menu";
+import theme from "@/src/theme";
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 
-export default function App({ Component, pageProps }) {
+export default function App({
+  Component,
+  pageProps,
+}: {
+  Component: any;
+  pageProps: Record<string, unknown>;
+}) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Head>
         <link rel="stylesheet" href="https://use.typekit.net/wgh7vrw.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* @ts-ignore */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&family=Karma:wght@300;400;500;600&display=swap"
@@ -47,6 +55,7 @@ export default function App({ Component, pageProps }) {
           }}
         >
           <Component {...pageProps} />
+          <Footer />
         </Box>
       </Box>
     </ThemeProvider>

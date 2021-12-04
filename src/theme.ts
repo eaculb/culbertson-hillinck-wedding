@@ -22,7 +22,7 @@ declare module "@mui/material/styles/createPalette" {
   }
 }
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
@@ -125,6 +125,11 @@ const theme = createTheme({
     MuiButton: {
       defaultProps: {
         disableElevation: true,
+      },
+    },
+    MuiLink: {
+      defaultProps: {
+        underline: "hover",
       },
     },
   },

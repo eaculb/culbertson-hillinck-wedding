@@ -1,6 +1,6 @@
 import React from "react";
 
-import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 interface Props {
@@ -10,15 +10,11 @@ interface Props {
 
 export default function DaySchedule({ date, children }: Props) {
   return (
-    <Grid item>
-      <Grid container>
-        <Grid item xs={12} sm={3} sx={{ mb: 1 }}>
-          <Typography variant="h6">{date}</Typography>
-        </Grid>
-        <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
-          {children}
-        </Grid>
-      </Grid>
-    </Grid>
+    <Stack direction={{ xs: "column", lg: "row" }} sx={{ mb: 2 }}>
+      <Typography variant="h6" width="280px">
+        {date}
+      </Typography>
+      <Stack direction="column">{children}</Stack>
+    </Stack>
   );
 }

@@ -1,16 +1,16 @@
+// UNDER CONSTRUCTION
+
 import React, { useCallback, useState } from "react";
 
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import { useTheme } from "@mui/system";
 
 import Section from "@/components/Section";
+import { theme } from "@/src/theme";
 
 export default function Page() {
-  const theme = useTheme();
-
   const [lookupName, setLookupName] = useState<string>("");
 
   const handleLookupChange = useCallback(
@@ -40,6 +40,7 @@ export default function Page() {
           </Typography>
         </Grid>
       </Section>
+      {/* @ts-ignore */}
       <Section backgroundColor={theme.palette.complementary.main}>
         <Grid item xs={12} md={6} sx={{ pr: 2 }}></Grid>
         <Grid item xs={12} md={6}>
