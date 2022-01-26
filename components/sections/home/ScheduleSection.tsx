@@ -44,7 +44,7 @@ export default function HomePage() {
             <DayItem time="5:30 PM" event="Ceremony" />
             <DayItem time="following" event="Reception" />
           </DaySchedule>
-          <DaySchedule date="September 23, 2022">
+          <DaySchedule date="September 25, 2022">
             <DayItem
               time="~10AM"
               event="Goodbye Bagels (drop by any time between 10 and noon!)"
