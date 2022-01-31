@@ -45,7 +45,7 @@ export default function HomePage() {
           src="/CheyannaDeNicolaPhotography0596.jpg"
           alt="the happy couple"
           width="100%"
-          style={{ borderRadius: 10 }}
+          className="rounded-image"
         />
       </Grid>
     </>

@@ -21,7 +21,8 @@ export default function Page() {
           <img
             src="/CheyannaDeNicolaPhotography0926.jpg"
             alt="more of the happy couple"
-            style={{ borderRadius: 10 }}
+            width="100%"
+            className="rounded-image"
           />
         </Stack>
       </Grid>

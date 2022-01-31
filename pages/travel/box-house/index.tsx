@@ -15,9 +15,9 @@ export default function Page() {
         </Typography>
         <img
           src="/box-house-1.jpg"
-          width="100%"
           alt="the box house hotel"
-          style={{ borderRadius: 10 }}
+          width="100%"
+          className="rounded-image"
         />
       </Grid>
       <Grid item xs={12} md={6}>

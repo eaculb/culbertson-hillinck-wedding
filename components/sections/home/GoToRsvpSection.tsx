@@ -15,7 +15,7 @@ export default function HomePage() {
           src="/CheyannaDeNicolaPhotography0847.jpg"
           alt="more of the happy couple"
           width="100%"
-          style={{ borderRadius: 10 }}
+          className="rounded-image"
         />
       </Grid>
       <Grid item xs={6} md={3}>
@@ -23,7 +23,7 @@ export default function HomePage() {
           src="/CheyannaDeNicolaPhotography0854.jpg"
           alt="more of the happy couple"
           width="100%"
-          style={{ borderRadius: 10 }}
+          className="rounded-image"
         />
       </Grid>
       <Grid item xs={12} md={6}>

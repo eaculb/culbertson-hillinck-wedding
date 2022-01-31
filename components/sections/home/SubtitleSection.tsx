@@ -2,8 +2,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-import { theme } from "@/src/theme";
-
 export default function HomePage() {
   return (
     <>
@@ -12,7 +10,6 @@ export default function HomePage() {
           src="/CheyannaDeNicolaPhotography1607.jpg"
           alt="more of the happy couple"
           width="100%"
-          style={{ borderRadius: 10 }}
         />
       </Grid>
       <Grid item xs={12} sm={5} md={7}>

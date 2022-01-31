@@ -5,6 +5,8 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 
+import "@/src/globals.css";
+
 import theme from "@/src/theme";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
@@ -33,7 +35,7 @@ export default function App({
           rel="stylesheet"
         />
       </Head>
-      <Box sx={{ display: "flex", position: "relative" }}>
+      <Box sx={{ position: "relative" }}>
         <Box
           sx={{
             backgroundColor: theme.palette.background.default,
@@ -52,6 +54,9 @@ export default function App({
             top: theme.appBarHeight,
             width: "100%",
             height: `calc(100vh - ${theme.appBarHeight}px)`,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
           }}
         >
           <Component {...pageProps} />

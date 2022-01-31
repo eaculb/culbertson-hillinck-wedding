@@ -1,3 +1,5 @@
+import NextLink from "next/link";
+
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
@@ -25,7 +27,7 @@ const PhotoGrid = () => (
         src="/CheyannaDeNicolaPhotography1104.jpg"
         alt="more of the happy couple"
         width="100%"
-        style={{ borderRadius: 10 }}
+        className="rounded-image"
       />
     </Grid>
     <Grid item xs={12} sm={6} md={12} lg={6}>
@@ -33,7 +35,7 @@ const PhotoGrid = () => (
         src="/CheyannaDeNicolaPhotography0979.jpg"
         alt="more of the happy couple"
         width="100%"
-        style={{ borderRadius: 10 }}
+        className="rounded-image"
       />
     </Grid>
     <Grid item xs={12} display="flex" justifyContent="center" sx={{ my: 7 }}>
@@ -44,7 +46,7 @@ const PhotoGrid = () => (
         src="/CheyannaDeNicolaPhotography1316.jpg"
         alt="more of the happy couple"
         width="100%"
-        style={{ borderRadius: 10 }}
+        className="rounded-image"
       />
     </Grid>
     <Grid item xs={12} sm={6} md={12} lg={6}>
@@ -52,7 +54,7 @@ const PhotoGrid = () => (
         src="/CheyannaDeNicolaPhotography1140.jpg"
         alt="more of the happy couple"
         width="100%"
-        style={{ borderRadius: 10 }}
+        className="rounded-image"
       />
     </Grid>
   </Grid>
@@ -111,12 +113,24 @@ export default function Page() {
             wide enough that they won't sink into the ground!
           </Typography>
           <Typography variant="body2" sx={{ mb: 1 }}>
-            Run your idea past Lizzie if you're worried; we don't want anyone to
-            stress over what to wear!
+            {`If you want some inspiration, check out our `}
+            <NextLink href="faq/moodboard" passHref>
+              <Link
+                href="/faq/moodboard"
+                color="primary"
+                underline="hover"
+                variant="body2"
+                sx={{ display: "inline" }}
+              >
+                moodboard
+              </Link>
+            </NextLink>
+            {` for guest attire!`}
           </Typography>
-          <Typography variant="body2" color="complementary">
-            We're working on a moodboard if you need some inspiration -- check
-            back soon!
+          <Typography variant="body2" sx={{ mb: 1 }}>
+            Lastly, if you're worried, feel free to run your idea past Lizzie.
+            We don't want anyone to stress over what to wear and she loves
+            helping people pick out clothes.
           </Typography>
         </Box>
         <StyledDivider />

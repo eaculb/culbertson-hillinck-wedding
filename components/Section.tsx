@@ -15,7 +15,6 @@ export default function Section({
   children,
   containerSx,
 }: Props) {
-
   return (
     <Box
       sx={{

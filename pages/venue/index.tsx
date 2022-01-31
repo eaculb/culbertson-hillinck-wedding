@@ -1,10 +1,6 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import MatLink from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 import Section from "@/components/Section";
 
@@ -45,17 +41,17 @@ export default function Page() {
       <Grid item xs={12} sm={6} lg={3} mt={{ xs: 0, lg: 3 }}>
         <img
           src="/mr1.jpg"
-          width="100%"
           alt="milk and roses Brooklyn"
-          style={{ borderRadius: 10 }}
+          width="100%"
+          className="rounded-image"
         />
       </Grid>
       <Grid item xs={12} sm={6} lg={3} mt={{ xs: 0, lg: 9 }}>
         <img
           src="/mr2.jpg"
-          width="100%"
           alt="milk and roses Brooklyn"
-          style={{ borderRadius: 10 }}
+          width="100%"
+          className="rounded-image"
         />
       </Grid>
     </Section>

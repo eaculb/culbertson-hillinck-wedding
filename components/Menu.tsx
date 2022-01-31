@@ -44,8 +44,8 @@ export default function Menu() {
           alignItems="center"
           sx={{ height: theme.appBarHeight, px: 3, py: "auto" }}
         >
-          <IconButton aria-label="menu" size="medium">
-            <MenuIcon fontSize="medium" onClick={toggleDrawer} />
+          <IconButton aria-label="menu" size="medium" onClick={toggleDrawer}>
+            <MenuIcon fontSize="medium" />
           </IconButton>
         </Stack>
         <Drawer

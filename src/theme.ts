@@ -3,10 +3,12 @@ import { createTheme } from "@mui/material/styles";
 declare module "@mui/material/styles/createTheme" {
   interface Theme {
     appBarHeight: number;
+    footerHeight: number;
   }
   // allow configuration using `createMuiTheme`
   interface ThemeOptions {
     appBarHeight?: number;
+    footerHeight?: number;
   }
 }
 
@@ -135,6 +137,7 @@ export const theme = createTheme({
   },
   // Used for consistency in the app bar size
   appBarHeight: 72,
+  footerHeight: 84,
 });
 
 export default theme;
