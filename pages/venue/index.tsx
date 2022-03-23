@@ -34,8 +34,8 @@ export default function Page() {
           greenhouse.
         </Typography>
         <Typography variant="body1" sx={{ mb: 2 }}>
-          They are currently in the process of relocating to a larger space, so
-          photos you find online may be outdated!
+          They have very recently relocated to a larger space, so photos you
+          find online may be outdated!
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6} lg={3} mt={{ xs: 0, lg: 3 }}>

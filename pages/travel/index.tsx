@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import MatLink from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
@@ -11,6 +12,8 @@ import { theme } from "@/src/theme";
 
 const AIRBNB_SEARCH_LINK =
   "https://www.airbnb.com/s/Greenpoint--Brooklyn--NY--USA/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=november&flexible_trip_dates%5B%5D=october&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&query=Greenpoint%2C%20Brooklyn%2C%20NY%2C%20USA&place_id=ChIJs1ja4UhZwokRbkVU6bKHDHI&checkin=2022-09-23&checkout=2022-09-25";
+const WYNDHAM_LINK =
+  "https://www.wyndhamhotels.com/wyndham-garden/long-island-city-new-york/wyndham-garden-long-island-city/rooms-rates?&checkInDate=09/23/2022&checkOutDate=09/25/2022&groupCode=092322CUL";
 
 export default function Page() {
   return (
@@ -48,7 +51,7 @@ export default function Page() {
             >
               <Typography variant="body2">
                 LGA is about 20 minutes driving from The Box House and Milk &
-                Roses, and 30 minutes from the Hampton Inn.
+                Roses, and 15 minutes from the Wyndham Garden.
               </Typography>
             </Box>
           </Grid>
@@ -63,8 +66,8 @@ export default function Page() {
               }}
             >
               <Typography variant="body2">
-                JFK is about 30 minutes driving from The Box House and Milk &
-                Roses, and 45 minutes from the Hampton Inn.
+                JFK is about 30 minutes driving from both The Box House and Milk
+                & Roses and the Wyndham Garden.
               </Typography>
             </Box>
           </Grid>
@@ -100,9 +103,9 @@ export default function Page() {
         <Typography variant="body1">
           We have set up room blocks at the following hotels. The Box House is
           on the same block as the wedding venue (and Lizzie & BJ will be
-          staying there). There will be a shuttle provided from the Hampton Inn
-          to Milk & Roses for the ceremony and back to the Hampton Inn after the
-          reception.
+          staying there). There will be a shuttle provided from the Wyndham
+          Garden to Milk & Roses for the ceremony and back to the Wyndham Garden
+          after the reception.
         </Typography>
         <Grid
           container
@@ -125,16 +128,29 @@ export default function Page() {
               <Typography variant="body2" sx={{ mb: 2 }}>
                 Brooklyn, NY 11222
               </Typography>
-              <Link href="travel/box-house">
-                <MatLink
-                  href="travel/box-house"
-                  color="primary"
-                  variant="button"
-                  underline="hover"
-                >
-                  See Booking Instructions
-                </MatLink>
-              </Link>
+              <MatLink
+                href="https://goo.gl/maps/G4njt3uwkHRvKxPLA"
+                color="primary"
+                variant="body2"
+                underline="hover"
+                target="blank"
+                rel="noopener noreferrer"
+              >
+                View on Google Maps
+              </MatLink>
+              <Divider color="white" sx={{ mx: 5, my: 3 }} />
+              <Typography variant="body2">
+                {"See "}
+                <Link href="travel/box-house">
+                  <MatLink
+                    href="travel/box-house"
+                    color="primary"
+                    underline="hover"
+                  >
+                    booking instructions
+                  </MatLink>
+                </Link>
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -147,14 +163,32 @@ export default function Page() {
                 height: "100%",
               }}
             >
-              <Typography variant="h6">The Hampton Inn</Typography>
-              <Typography variant="body2">125 Flatbush Ave Ext</Typography>
+              <Typography variant="h6">Wyndham Garden LIC</Typography>
+              <Typography variant="body2">44-29 9th Street</Typography>
               <Typography variant="body2" sx={{ mb: 2 }}>
-                Brooklyn, NY 11201
+                Long Island City, New York 11101
               </Typography>
+              <MatLink
+                href="https://g.page/wyndham-garden-long-island-city?share"
+                color="primary"
+                variant="body2"
+                underline="hover"
+                target="blank"
+                rel="noopener noreferrer"
+              >
+                View on Google Maps
+              </MatLink>
+              <Divider color="white" sx={{ mx: 5, my: 3 }} />
               <Typography variant="body2">
-                Info about room block coming soon. If you're this early I'm
-                impressed!
+                Book using{" "}
+                <MatLink
+                  href={WYNDHAM_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  this link
+                </MatLink>{" "}
+                or use code 092322CUL.
               </Typography>
             </Box>
           </Grid>
