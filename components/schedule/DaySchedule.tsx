@@ -10,11 +10,16 @@ interface Props {
 
 export default function DaySchedule({ date, children }: Props) {
   return (
-    <Stack direction={{ xs: "column", lg: "row" }} sx={{ mb: 2 }}>
+    <Stack
+      direction={{ xs: "column", lg: "row" }}
+      sx={{ mb: 2, width: "100%" }}
+    >
       <Typography variant="h6" width="280px">
         {date}
       </Typography>
-      <Stack direction="column">{children}</Stack>
+      <Stack direction="column" sx={{ width: "100%" }}>
+        {children}
+      </Stack>
     </Stack>
   );
 }

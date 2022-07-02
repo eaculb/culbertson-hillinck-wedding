@@ -12,7 +12,7 @@ export default function HomePage() {
       containerSx={{
         mb: 3,
         alignItems: "center",
-        height: `calc(100vh-${theme.appBarHeight})`,
+        height: `calc(100vh - ${theme.appBarHeight})`,
       }}
     >
       <TitleSection />

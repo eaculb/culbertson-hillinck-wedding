@@ -3,6 +3,8 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import NextLink from "next/link";
+import Link from "@mui/material/Link";
 
 import DaySchedule from "@/components/schedule/DaySchedule";
 import DayItem from "@/components/schedule/DayItem";
@@ -32,22 +34,40 @@ export default function HomePage() {
         }}
       >
         <Typography variant="h2">Schedule</Typography>
-        <Typography variant="subtitle1" color="primary">
-          These are estimates. Check back soon for confirmed times!
+        <Typography variant="subtitle1">
+          {'For a map of all locations, see our '}
+          <NextLink href="/map" passHref>
+            <Link href="/map" color="primary" underline="hover" variant="subtitle1">
+              map
+            </Link>
+          </NextLink>
         </Typography>
         <Stack direction="column">
           <DaySchedule date="September 23, 2022">
-            <DayItem time="~3:00 PM" event="Hotel Check-In" />
-            <DayItem time="~6:00 PM" event="Rehearsal Dinner" />
+            <DayItem
+              time="3:00 PM"
+              event="Hotel Check-In"
+              location="Box House Hotel, Wyndham Garden LIC"
+            />
+            <DayItem
+              time="5:00 PM"
+              event="Welcome Picnic"
+              location="WNYC Transmitter Park"
+            />
           </DaySchedule>
           <DaySchedule date="September 24, 2022">
-            <DayItem time="5:30 PM" event="Ceremony" />
-            <DayItem time="following" event="Reception" />
+            <DayItem time="5:30 PM" event="Ceremony" location="Milk & Roses" />
+            <DayItem
+              time="6:00 PM"
+              event="Cocktail Hour & Reception"
+              location="Milk & Roses"
+            />
           </DaySchedule>
           <DaySchedule date="September 25, 2022">
             <DayItem
-              time="~10AM"
+              time="10:00 AM"
               event="Goodbye Bagels (drop by any time between 10 and noon!)"
+              location="Box House Hotel (room number TBA)"
             />
           </DaySchedule>
         </Stack>

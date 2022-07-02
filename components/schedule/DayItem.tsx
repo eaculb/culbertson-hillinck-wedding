@@ -1,25 +1,33 @@
 import React from "react";
 
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 interface Props {
   time: string;
   event: string;
+  location: string;
 }
 
-export default function DayItem({ time, event }: Props) {
+export default function DayItem({ time, event, location }: Props) {
   return (
-    <Stack direction="row" sx={{ mb: 1 }}>
-      <Typography
-        variant="body1"
-        color="complementary"
-        sx={{ minWidth: "120px" }}
-      >
+    <Box
+      sx={{
+        mb: 1,
+        ml: 4,
+        width: "100%",
+        display: "grid",
+        gridTemplateColumns: "120px auto",
+        gridGap: "20px",
+      }}
+    >
+      <Typography variant="body1" color="complementary">
         {time}
       </Typography>
-      <Typography variant="body1">{event}</Typography>
-    </Stack>
+      <Box>
+        <Typography variant="body1">{event}</Typography>
+        <Typography variant="body2">{location}</Typography>
+      </Box>
+    </Box>
   );
 }

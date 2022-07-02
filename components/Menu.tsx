@@ -69,6 +69,9 @@ export default function Menu() {
             <ListItem key="travel">
               <NavLink mobile path="/travel" label="Travel" />
             </ListItem>
+            <ListItem key="map">
+              <NavLink mobile path="/map" label="Map" />
+            </ListItem>
             <ListItem key="registry">
               <NavLink mobile path="/registry" label="Registry" />
             </ListItem>
@@ -94,6 +97,7 @@ export default function Menu() {
       <NavLink path="/home" label="Home" />
       <NavLink path="/venue" label="Venue" />
       <NavLink path="/travel" label="Travel" />
+      <NavLink path="/map" label="Map" />
       <NavLink path="/registry" label="Registry" />
       <NavLink path="/faq" label="FAQ" />
       <Box sx={{ ml: 7 }}>{/* <RsvpButton size="medium" /> */}</Box>
