@@ -10,7 +10,7 @@ import ListItem from "@mui/material/ListItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-// import RsvpButton from "./RsvpButton";
+import RsvpButton from "./RsvpButton";
 import NavLink from "@/components/NavLink";
 import { theme } from "@/src/theme";
 
@@ -78,9 +78,9 @@ export default function Menu() {
             <ListItem key="faq">
               <NavLink mobile path="/faq" label="FAQ" />
             </ListItem>
-            {/* <ListItem key="rsvp">
+            <ListItem key="rsvp">
               <RsvpButton size="medium" fullWidth />
-            </ListItem> */}
+            </ListItem>
           </List>
         </Drawer>
       </Box>
@@ -100,7 +100,7 @@ export default function Menu() {
       <NavLink path="/map" label="Map" />
       <NavLink path="/registry" label="Registry" />
       <NavLink path="/faq" label="FAQ" />
-      <Box sx={{ ml: 7 }}>{/* <RsvpButton size="medium" /> */}</Box>
+      <Box sx={{ ml: 7 }}>{<RsvpButton size="medium" />}</Box>
     </Stack>
   );
 }
