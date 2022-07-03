@@ -37,9 +37,11 @@ export default function Page() {
           setFound(res.data);
           setAttempted(true);
         } catch (err) {
+          console.log(error);
           setError(true);
         }
       }
+      setError(false);
       e.preventDefault();
       execute();
     },
@@ -109,6 +111,11 @@ export default function Page() {
             )
           ) : (
             <></>
+          )}
+          {error && (
+            <Typography variant="body2">
+              Sorry, there was an error looking up your party!
+            </Typography>
           )}
         </Grid>
       </Section>

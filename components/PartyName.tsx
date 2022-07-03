@@ -1,9 +1,7 @@
 import { Party } from "@/utils/types";
 
 export default function PartyName({ party }: { party: Party }) {
-  return (
-    <>{`${party.guestA?.name}${
-      party.guestA && party.guestB && ` & `
-    }${`${party.guestB?.name}`}`}</>
-  );
+  const string1 = party.guestA.name;
+  const string2 = party.guestB ? ` & ${party.guestB.name}` : "";
+  return <>{`${string1}${string2}`}</>;
 }

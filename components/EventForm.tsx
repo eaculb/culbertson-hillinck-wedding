@@ -55,12 +55,13 @@ export default function EventForm({ id: guestId, name: guestName }: Props) {
     wedding: null,
     bagels: null,
   });
+  console.log(guestId);
 
   const updateStatus = useCallback(
     (key: keyof Status) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newStatus = { ...status, [key]: e.target.value }
+      const newStatus = { ...status, [key]: e.target.value };
       setStatus(newStatus);
-      axios.put(`/api/guests/${guestId}`, { body: { state: newStatus } });
+      axios.put(`/api/guests/${guestId}`, { state: newStatus });
     },
     [guestId, status, setStatus]
   );

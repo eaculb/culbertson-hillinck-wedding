@@ -8,11 +8,12 @@ export async function getPartyDeep(party) {
   const data = party.data();
   const guestA = data.guestA && (await data.guestA.get());
   const guestB = data.guestB && (await data.guestB.get());
-  return {
+  const result = {
     id: party.id,
-    guestA: guestA?.data(),
-    guestB: guestB?.data(),
+    guestA: { id: data.guestA.id, ...guestA?.data() },
+    guestB: guestB && { id: data.guestB.id, ...guestB.data() },
   };
+  return result;
 }
 
 export default async function handler(
@@ -34,7 +35,7 @@ export default async function handler(
       }
       break;
     case "PUT":
-      updateParty(id, data, res);
+      updateParty(id, data);
       break;
     default:
       res.setHeader("Allow", ["GET", "PUT"]);
@@ -42,7 +43,7 @@ export default async function handler(
   }
 }
 
-async function updateParty(id: string, data: Party, res: NextApiResponse) {
+async function updateParty(id: string, data: Party) {
   await db
     .collection("parties")
     .doc(id)

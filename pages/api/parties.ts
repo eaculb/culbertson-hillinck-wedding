@@ -38,13 +38,22 @@ async function lookupParty(req: NextApiRequest) {
     allParties.docs.map(async (party) => await getPartyDeep(party))
   );
 
-  const filtered = allData.filter(
-    (party) =>
-      stringSimilarity.compareTwoStrings(party.guestA.name, partial) >
-        THRESHOLD ||
-      (party.guestB &&
-        stringSimilarity.compareTwoStrings(party.guestB.name, partial) >
-          THRESHOLD)
-  );
+  const filtered = allData.filter((party) => {
+    if (
+      stringSimilarity.compareTwoStrings(party.guestA.name, partial) > THRESHOLD
+    ) {
+      return true;
+    }
+    if (party.guestB) {
+      const similarity = stringSimilarity.compareTwoStrings(
+        party.guestB.name,
+        partial
+      );
+      if (similarity > THRESHOLD) {
+        return true;
+      }
+    }
+    return false;
+  });
   return filtered;
 }
