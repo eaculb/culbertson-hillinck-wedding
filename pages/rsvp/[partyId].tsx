@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
+import EventForm from "@/components/EventForm";
 import Section from "@/components/Section";
 import PartyName from "@/components/PartyName";
 import { Party } from "@/utils/types";
@@ -17,11 +18,11 @@ export default function Page() {
 
   useEffect(() => {
     async function execute() {
-      const weird = query.partyId;
-      if (!weird) {
+      const pid = query.partyId;
+      if (!pid) {
         return;
       }
-      const res = await axios.get(`/api/party/${weird}`);
+      const res = await axios.get(`/api/party/${pid}`);
       console.log(res);
       setParty(res.data);
     }
@@ -47,12 +48,12 @@ export default function Page() {
             <PartyName party={party} />
           </Typography>
         </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <Typography variant="subtitle1">{party.guestA.name}</Typography>
+        <Grid item xs={12} sm={6} lg={3}>
+          <EventForm {...party.guestA} />
         </Grid>
-        {party?.guestB && (
-          <Grid item xs={12} md={6} lg={4}>
-            <Typography variant="subtitle1">{party.guestB.name}</Typography>
+        {party.guestB && (
+          <Grid item xs={12} sm={6} lg={3}>
+            <EventForm {...party.guestB} />
           </Grid>
         )}
       </Section>

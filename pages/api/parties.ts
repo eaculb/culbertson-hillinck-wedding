@@ -1,7 +1,7 @@
 import db from "@/utils/db";
 import { Party } from "@/utils/types";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getPartyDeep } from "./party/[id]";
+import { getPartyDeep } from "./parties/[id]";
 
 var stringSimilarity = require("string-similarity");
 
@@ -18,7 +18,6 @@ export default async function handler(
         const filtered = await lookupParty(req);
         res.status(200).json(filtered);
       } catch (e) {
-        console.log(e);
         res.status(400).end();
       }
 

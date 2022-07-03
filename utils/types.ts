@@ -1,10 +1,14 @@
+export interface Status {
+  picnic?: boolean | null;
+  wedding?: boolean | null;
+  bagels?: boolean | null;
+}
+
 export interface Guest {
   id: string;
   name: string;
   email?: string;
-  picnic?: boolean;
-  wedding?: boolean;
-  bagels?: boolean;
+  status?: Status;
   dietaryRestrictionsBool?: boolean;
   dietaryRestrictionsDetail?: string;
   hotelHelp?: string;
