@@ -7,17 +7,18 @@ export interface Status {
 export interface Guest {
   id: string;
   name: string;
-  email?: string;
   status?: Status;
-  dietaryRestriction?: boolean;
-  dietaryRestrictionDetail?: string;
-  hotelHelp?: string;
-  other?: string;
+  updated?: string;
 }
 
 export interface Party {
   id: string;
+  email?: string;
   guestA: Guest;
   guestB: Guest;
+  dietaryRestriction?: boolean;
+  dietaryRestrictionDetail?: string;
+  hotelHelp?: boolean;
+  other?: string;
   updated?: string;
 }

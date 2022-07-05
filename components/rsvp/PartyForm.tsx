@@ -22,13 +22,15 @@ export default function PartyForm({ party }: { party: Party }) {
   const [error, setError] = useState<boolean>(false);
 
   // Will I regret not using yup? Probably
-  const [email, setEmail] = useState<string | null>(null);
-  const [dietaryRestriction, setDietaryRestriction] = useState<boolean>(false);
+  const [email, setEmail] = useState<string | null>(party.email ?? null);
+  const [dietaryRestriction, setDietaryRestriction] = useState<boolean>(
+    party.dietaryRestriction ?? false
+  );
   const [dietaryRestrictionDetail, setDietaryRestrictionDetail] = useState<
     string | null
-  >(null);
-  const [hotelHelp, setHotelHelp] = useState<boolean>(false);
-  const [other, setOther] = useState<string | null>(null);
+  >(party.dietaryRestrictionDetail ?? null);
+  const [hotelHelp, setHotelHelp] = useState<boolean>(party.hotelHelp ?? false);
+  const [other, setOther] = useState<string | null>(party.other ?? null);
 
   const validateAndConfirm = () => {
     setSubmitting(true);

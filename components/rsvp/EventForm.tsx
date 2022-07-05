@@ -10,7 +10,7 @@ import RadioGroup, { RadioGroupProps } from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
 import Stack from "@mui/material/Stack";
 
-import { Status } from "@/utils/types";
+import { Guest, Status } from "@/utils/types";
 
 type EventProps = Omit<RadioGroupProps, "id" | "label"> & {
   id: string;
@@ -42,16 +42,15 @@ const EventGroup = ({ id, label, ...props }: EventProps) => {
   );
 };
 
-interface Props {
-  id: string;
-  name: string;
-}
-
-export default function EventForm({ id: guestId, name: guestName }: Props) {
+export default function EventForm({
+  id: guestId,
+  name: guestName,
+  ...guest
+}: Guest) {
   const [status, setStatus] = useState<Status>({
-    picnic: null,
-    wedding: null,
-    bagels: null,
+    picnic: guest.status?.picnic ?? null,
+    wedding: guest.status?.wedding ?? null,
+    bagels: guest.status?.bagels ?? null,
   });
 
   const updateStatus = useCallback(
