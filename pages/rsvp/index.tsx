@@ -11,7 +11,7 @@ import TextField from "@mui/material/TextField";
 
 import Section from "@/components/Section";
 import StyledButton from "@/components/StyledButton";
-import PartyName from "@/components/PartyName";
+import PartyName from "@/components/rsvp/PartyName";
 import { Party } from "@/utils/types";
 
 export default function Page() {
@@ -37,7 +37,6 @@ export default function Page() {
           setFound(res.data);
           setAttempted(true);
         } catch (err) {
-          console.log(error);
           setError(true);
         }
       }

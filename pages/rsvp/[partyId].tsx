@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 const axios = require("axios").default;
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-
-import EventForm from "@/components/EventForm";
-import Section from "@/components/Section";
-import PartyName from "@/components/PartyName";
-import { Party } from "@/utils/types";
-import { useRouter } from "next/router";
 import { CircularProgress } from "@mui/material";
+
+import Section from "@/components/Section";
+import EventForm from "@/components/rsvp/EventForm";
+import PartyName from "@/components/rsvp/PartyName";
+import PartyForm from "@/components/rsvp/PartyForm";
+import { Party } from "@/utils/types";
 
 export default function Page() {
   const { query } = useRouter();
@@ -81,9 +81,10 @@ export default function Page() {
             <EventForm {...party.guestB} />
           </Grid>
         )}
+        <Grid item xs={12} lg={6}>
+          <PartyForm party={party} />
+        </Grid>
       </Section>
-      {/* @ts-ignore */}
-      <Section></Section>
     </>
   );
 }

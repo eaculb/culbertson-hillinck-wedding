@@ -1,18 +1,16 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 const axios = require("axios").default;
 
-import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import RadioGroup, { RadioGroupProps } from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
+import Stack from "@mui/material/Stack";
 
 import { Status } from "@/utils/types";
-import { Box, Stack, Theme } from "@mui/material";
 
 type EventProps = Omit<RadioGroupProps, "id" | "label"> & {
   id: string;
@@ -55,7 +53,6 @@ export default function EventForm({ id: guestId, name: guestName }: Props) {
     wedding: null,
     bagels: null,
   });
-  console.log(guestId);
 
   const updateStatus = useCallback(
     (key: keyof Status) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,6 +68,7 @@ export default function EventForm({ id: guestId, name: guestName }: Props) {
       sx={{
         pt: 2,
         pb: 3,
+        pr: 2,
         borderRadius: "20px",
       }}
     >

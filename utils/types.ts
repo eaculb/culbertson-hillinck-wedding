@@ -9,10 +9,10 @@ export interface Guest {
   name: string;
   email?: string;
   status?: Status;
-  dietaryRestrictionsBool?: boolean;
-  dietaryRestrictionsDetail?: string;
+  dietaryRestriction?: boolean;
+  dietaryRestrictionDetail?: string;
   hotelHelp?: string;
-  notes?: string;
+  other?: string;
 }
 
 export interface Party {
