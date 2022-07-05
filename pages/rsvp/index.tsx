@@ -96,7 +96,7 @@ export default function Page() {
             found.length > 0 ? (
               found.map((party) => (
                 <Link href={`/rsvp/${party.id}`} key={party.id}>
-                  <StyledButton variant="outlined">
+                  <StyledButton variant="outlined" sx={{ mb: 2 }}>
                     <PartyName party={party} />
                   </StyledButton>
                 </Link>
