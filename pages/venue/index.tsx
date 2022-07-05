@@ -7,7 +7,7 @@ import Section from "@/components/Section";
 export default function Page() {
   return (
     <Section>
-      <Grid item xs={12} lg={6} sx={{ mb: 3 }}>
+      <Grid item xs={12} lg={6} sx={{ pr: { xs: 0, lg: 3 } }}>
         <Typography variant="h2" sx={{ mb: 3 }}>
           The Venue
         </Typography>
@@ -38,17 +38,9 @@ export default function Page() {
           find online may be outdated!
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={6} lg={3} mt={{ xs: 0, lg: 3 }}>
+      <Grid item xs={12} lg={6}>
         <img
-          src="/mr1.jpg"
-          alt="milk and roses Brooklyn"
-          width="100%"
-          className="rounded-image"
-        />
-      </Grid>
-      <Grid item xs={12} sm={6} lg={3} mt={{ xs: 0, lg: 9 }}>
-        <img
-          src="/mr2.jpg"
+          src="/mr-new.jpg"
           alt="milk and roses Brooklyn"
           width="100%"
           className="rounded-image"
