@@ -1,6 +1,8 @@
 // UNDER CONSTRUCTION
 
 import React, { useCallback, useState } from "react";
+const axios = require("axios").default;
+import Link from "next/link";
 
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
@@ -8,10 +10,15 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
 import Section from "@/components/Section";
-import { theme } from "@/src/theme";
+import StyledButton from "@/components/StyledButton";
+import PartyName from "@/components/rsvp/PartyName";
+import { Party } from "@/utils/types";
 
 export default function Page() {
   const [lookupName, setLookupName] = useState<string>("");
+  const [attempted, setAttempted] = useState<boolean>(false);
+  const [found, setFound] = useState<Party[]>([]);
+  const [error, setError] = useState<boolean>(false);
 
   const handleLookupChange = useCallback(
     (e) => setLookupName(e.target.value),
@@ -20,9 +27,22 @@ export default function Page() {
 
   const handleExecuteLookup = useCallback(
     (e) => {
+      async function execute() {
+        try {
+          const res = await axios.get("/api/parties", {
+            params: {
+              partial: lookupName,
+            },
+          });
+          setFound(res.data);
+          setAttempted(true);
+        } catch (err) {
+          setError(true);
+        }
+      }
+      setError(false);
       e.preventDefault();
-      console.log(lookupName);
-      setLookupName("");
+      execute();
     },
     [lookupName, setLookupName]
   );
@@ -33,17 +53,10 @@ export default function Page() {
         <Grid item xs={12} md={4} lg={6}>
           <Typography variant="h1">RSVP</Typography>
         </Grid>
-        <Grid item xs={12} md={8} lg={6}>
-          <Typography variant="h3">
-            We are excited to celebrate with you in whatever capacity you are
-            available!
-          </Typography>
-        </Grid>
       </Section>
       {/* @ts-ignore */}
-      <Section backgroundColor={theme.palette.complementary.main}>
-        <Grid item xs={12} md={6} sx={{ pr: 2 }}></Grid>
-        <Grid item xs={12} md={6}>
+      <Section>
+        <Grid item xs={12} md={6} sx={{ py: 3 }}>
           <Typography variant="body1">
             Please enter the first and last name of one member of your party to
             RSVP.
@@ -67,6 +80,42 @@ export default function Page() {
               Look Up
             </Button>
           </form>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            pr: 2,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {attempted ? (
+            found.length > 0 ? (
+              found.map((party) => (
+                <Link href={`/rsvp/${party.id}`} key={party.id}>
+                  <StyledButton variant="outlined" sx={{ mb: 2 }}>
+                    <PartyName party={party} />
+                  </StyledButton>
+                </Link>
+              ))
+            ) : (
+              <Typography variant="body2">
+                Sorry, no parties were found for that name! Did you type in both
+                your first and last names? Shoot Lizzie a text if you can't get
+                your name to come up.
+              </Typography>
+            )
+          ) : (
+            <></>
+          )}
+          {error && (
+            <Typography variant="body2">
+              Sorry, there was an error looking up your party!
+            </Typography>
+          )}
         </Grid>
       </Section>
     </>

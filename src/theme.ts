@@ -52,6 +52,7 @@ export const theme = createTheme({
     },
     text: {
       primary: "#fff",
+      secondary: "#C98C53",
     },
   },
   typography: {
