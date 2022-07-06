@@ -78,11 +78,15 @@ export default function Page() {
             />
             <Button
               variant="contained"
-              sx={{ float: "right" }}
+              sx={{ float: "right", width: "120px" }}
               type="submit"
               onClick={handleExecuteLookup}
             >
-              {submitting ? <CircularProgress /> : "Look Up"}
+              {submitting ? (
+                <CircularProgress color="secondary" size={30} />
+              ) : (
+                "Look Up"
+              )}
             </Button>
           </form>
         </Grid>

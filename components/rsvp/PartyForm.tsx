@@ -132,10 +132,11 @@ export default function PartyForm({ party }: { party: Party }) {
               disabled={submitting}
               sx={{
                 width: { xs: "100%", md: "auto" },
+                minWidth: "120px",
                 alignSelf: { md: "flex-end" },
               }}
             >
-              {submitting ? <CircularProgress /> : "Submit"}
+              {submitting ? <CircularProgress size={30} /> : "Submit"}
             </StyledButton>
           </Stack>
         </form>
