@@ -20,17 +20,22 @@ export default function PartyForm({ party }: { party: Party }) {
   const router = useRouter();
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+  console.log(party);
 
   // Will I regret not using yup? Probably
-  const [email, setEmail] = useState<string | null>(party.email ?? null);
+  const [email, setEmail] = useState<string | undefined>(
+    party.email ?? undefined
+  );
   const [dietaryRestriction, setDietaryRestriction] = useState<boolean>(
     party.dietaryRestriction ?? false
   );
   const [dietaryRestrictionDetail, setDietaryRestrictionDetail] = useState<
-    string | null
-  >(party.dietaryRestrictionDetail ?? null);
+    string | undefined
+  >(party.dietaryRestrictionDetail ?? undefined);
   const [hotelHelp, setHotelHelp] = useState<boolean>(party.hotelHelp ?? false);
-  const [other, setOther] = useState<string | null>(party.other ?? null);
+  const [other, setOther] = useState<string | undefined>(
+    party.other ?? undefined
+  );
 
   const validateAndConfirm = () => {
     setSubmitting(true);
@@ -59,7 +64,7 @@ export default function PartyForm({ party }: { party: Party }) {
           borderRadius: "20px",
         }}
       >
-        <Typography variant="subtitle1" sx={{ mb: 2 }}>
+        <Typography variant="subtitle2" sx={{ mb: 2 }}>
           Other party information
         </Typography>
         <form>

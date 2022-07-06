@@ -7,7 +7,7 @@ export interface Status {
 export interface Guest {
   id: string;
   name: string;
-  status?: Status;
+  state?: Status;
   updated?: string;
 }
 

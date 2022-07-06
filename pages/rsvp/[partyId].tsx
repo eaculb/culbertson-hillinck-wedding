@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 const axios = require("axios").default;
 
@@ -31,6 +31,15 @@ export default function Page() {
     }
     execute();
   }, [query]);
+
+  const lastUpdated = useMemo(() => {
+    if (!party) {
+      return undefined;
+    }
+    const { updated } = party;
+    const formatted: Date | undefined = updated ? new Date(updated) : undefined;
+    return formatted;
+  }, [party]);
 
   if (loading) {
     return (
@@ -72,6 +81,11 @@ export default function Page() {
           <Typography variant="h3">
             <PartyName party={party} />
           </Typography>
+          {lastUpdated && (
+            <Typography variant="subtitle1">
+              {`Last submitted ${lastUpdated.toLocaleDateString()}`}
+            </Typography>
+          )}
         </Grid>
         <Grid item xs={12} sm={6} lg={3}>
           <EventForm {...party.guestA} />

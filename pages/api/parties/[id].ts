@@ -10,6 +10,7 @@ export async function getPartyDeep(party) {
   const guestB = data.guestB && (await data.guestB.get());
   const result = {
     id: party.id,
+    ...data,
     guestA: { id: data.guestA.id, ...guestA?.data() },
     guestB: guestB && { id: data.guestB.id, ...guestB.data() },
   };
