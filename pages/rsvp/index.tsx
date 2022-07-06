@@ -5,6 +5,7 @@ const axios = require("axios").default;
 import Link from "next/link";
 
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -16,6 +17,7 @@ import { Party } from "@/utils/types";
 
 export default function Page() {
   const [lookupName, setLookupName] = useState<string>("");
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const [attempted, setAttempted] = useState<boolean>(false);
   const [found, setFound] = useState<Party[]>([]);
   const [error, setError] = useState<boolean>(false);
@@ -28,6 +30,7 @@ export default function Page() {
   const handleExecuteLookup = useCallback(
     (e) => {
       async function execute() {
+        setSubmitting(true);
         try {
           const res = await axios.get("/api/parties", {
             params: {
@@ -38,6 +41,8 @@ export default function Page() {
           setAttempted(true);
         } catch (err) {
           setError(true);
+        } finally {
+          setSubmitting(false);
         }
       }
       setError(false);
@@ -73,11 +78,15 @@ export default function Page() {
             />
             <Button
               variant="contained"
-              sx={{ float: "right" }}
+              sx={{ float: "right", width: "120px" }}
               type="submit"
               onClick={handleExecuteLookup}
             >
-              Look Up
+              {submitting ? (
+                <CircularProgress color="secondary" size={30} />
+              ) : (
+                "Look Up"
+              )}
             </Button>
           </form>
         </Grid>

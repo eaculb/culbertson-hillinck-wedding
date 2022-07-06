@@ -47,11 +47,9 @@ export default function EventForm({
   name: guestName,
   ...guest
 }: Guest) {
-  const [status, setStatus] = useState<Status>({
-    picnic: guest.status?.picnic ?? null,
-    wedding: guest.status?.wedding ?? null,
-    bagels: guest.status?.bagels ?? null,
-  });
+  const [status, setStatus] = useState<Status>(
+    guest.state ?? { picnic: undefined, wedding: undefined, bagels: undefined }
+  );
 
   const updateStatus = useCallback(
     (key: keyof Status) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,7 +69,7 @@ export default function EventForm({
         borderRadius: "20px",
       }}
     >
-      <Typography variant="subtitle1" sx={{ mb: 2 }}>
+      <Typography variant="subtitle2" sx={{ mb: 2 }}>
         {guestName}
       </Typography>
       <form>
